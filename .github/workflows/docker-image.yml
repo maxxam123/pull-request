@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: pull request
-        if:{{github.ref == 'master'}}
+        if:${{github.ref == 'master'}}
       run: echo noPullRequest
     - name: second
 #    - name: Build the Docker image
