@@ -1,21 +1,24 @@
 name: Docker Image CI
 
 on:
-#  push:
-#    branches: [ "main" ]
+  push:
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
 jobs:
-
-  build:
-
+  staging:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
     - name: pull request
-        if:github.event.pull_request.merged != true
-      run: echo noPullRequest
-#    - name: Build the Docker image
-#      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: echo staging
+  production:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    - name: test
+      run: echo production
