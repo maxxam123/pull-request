@@ -17,6 +17,5 @@ jobs:
     - name: pull request
         if:github.event.pull_request.merged == true
       run: echo noPullRequest
-    - name: second
 #    - name: Build the Docker image
 #      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
