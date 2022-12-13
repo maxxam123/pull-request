@@ -2,11 +2,26 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "main" ]
+#    branches: [ "main" ]
+    branches:
+      - main
+      - feature-branch-01
+      - feature-branch-02
   pull_request:
-    branches: [ "main" ]
+#    branches: [ "main" ]
+    branches:
+      - main
+      - feature-branch-01
+      - feature-branch-02
 
 jobs:
+  dev:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: dev
+      run: echo ok
+    
   staging:
     if: github.ref == 'refs/heads/main'
 #    if: ${{github.event_name != 'pull_request' }}
