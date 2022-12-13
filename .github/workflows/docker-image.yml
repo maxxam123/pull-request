@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: pull request
-        if:${{github.ref == 'master'}}
+        if:github.event.pull_request.merged == true
       run: echo noPullRequest
     - name: second
 #    - name: Build the Docker image
