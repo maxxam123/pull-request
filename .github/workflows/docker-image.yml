@@ -15,10 +15,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: pull request
-        if:github.event_name != 'pull_request'
+        if:github.ref == 'master'
       run: echo noPullRequest
     - name: second
-        if:github.event_name == 'pull_request'
-      run: echo pullRequest
 #    - name: Build the Docker image
 #      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
