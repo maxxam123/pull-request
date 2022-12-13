@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: pull request
-      run: echo staging
+      run: echo ${{github.ref}}
   production:
 #    if: github.ref != 'refs/heads/master'
     if: ${{github.event_name == 'pull_request'}}
@@ -24,4 +24,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: test
-      run: echo production
+      run: echo ${{github.ref}}
