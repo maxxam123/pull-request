@@ -8,15 +8,17 @@ on:
 
 jobs:
   staging:
-    if: github.ref == 'refs/heads/master'
-    runs-on: ubuntu-latest
+#    if: github.ref == 'refs/heads/master'
+    if: github.event_name != 'pull_request'
+runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
     - name: pull request
       run: echo staging
   production:
-    if: github.ref != 'refs/heads/master'
+#    if: github.ref != 'refs/heads/master'
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     
     steps:
