@@ -15,6 +15,13 @@ on:
       - feature-branch-02
 
 jobs:
+  dev:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: dev
+      run: echo ok
+    
   staging:
     if: github.ref == 'refs/heads/main'
 #    if: ${{github.event_name != 'pull_request' }}
