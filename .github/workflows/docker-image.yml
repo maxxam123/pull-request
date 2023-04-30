@@ -8,8 +8,8 @@ on:
 #      - feature-branch-01
 #      - feature-branch-02
   pull_request:
-    branches: [ "main" ]
-#    branches:
+#    branches: [ "main" ]
+    branches:
       - main
       - feature-branch-01
       - feature-branch-02
